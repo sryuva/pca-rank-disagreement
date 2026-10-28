@@ -1,0 +1,37 @@
+=== CHECK 1: selection rules ===
+stability_rank arguments: ['X', 'rng']
+cv_rank arguments       : ['X', 'y', 'rng']
+stability rank identical without y: 300/300
+CV rank on pure-noise targets (should favour small k): [107  40  26  12   7   8]
+
+=== CHECK 2: does the ~1.0 excess MSE equal the signal variance SNR*sigma^2? ===
+ SNR sigma expected MSE_stab  MSE_cv  Var(y)  excess k_stab=3
+   1     1     1.00    2.013   1.021   1.995   0.992     1.00
+ 0.5     1     0.50    1.511   1.021   1.498   0.491     1.00
+   2     1     2.00    3.018   1.021   2.992   1.997     1.00
+   1     2     4.00    8.051   4.084   7.981   3.968     1.00
+0.25     2     1.00    5.046   4.084   4.999   0.962     1.00
+
+=== CHECK 3: first-order approximation vs a formal Davis-Kahan bound ===
+separation    n  empirical  predicted  davis_kahan_bound  violations
+     small   20      1.327      1.638              2.449           0
+     small   30      1.209      1.337              2.449           0
+     small   60      0.985      0.946              2.449           0
+     small  120      0.713      0.669              2.449           0
+     small  250      0.485      0.463              2.416           0
+     small  500      0.331      0.328              2.041           0
+     small 1000      0.232      0.232              1.476           0
+    medium   20      0.842      0.690              2.449           0
+    medium   30      0.650      0.564              2.438           0
+    medium   60      0.430      0.399              2.285           0
+    medium  120      0.291      0.282              1.786           0
+    medium  250      0.197      0.195              1.253           0
+    medium  500      0.138      0.138              0.885           0
+    medium 1000      0.098      0.098              0.625           0
+     large   20      0.343      0.297              2.305           0
+     large   30      0.273      0.242              2.130           0
+     large   60      0.176      0.171              1.667           0
+     large  120      0.123      0.121              1.187           0
+     large  250      0.083      0.084              0.815           0
+     large  500      0.059      0.059              0.563           0
+     large 1000      0.042      0.042              0.394           0

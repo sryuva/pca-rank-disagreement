@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Local toolchain downloaded for LaTeX compilation
+.tools/
+
+# LaTeX and document-build intermediates
+paper/*.log
+paper/*.aux
+paper/*.out
+paper/*.xdv
+paper/*.docx
+paper/*_professional.pdf
+paper/*_latex.pdf
+paper/latex_preview/
+paper/preview_professional/
+
+# One-off local Word/report conversion helpers; the canonical paper source is .tex
+src/build_latex.py
+src/build_pdf.py
+src/style_paper.py
